@@ -20,7 +20,7 @@ router.route('/course/:id').delete(isAuthenticated,authorizeRole,deleteCourse)
 
 router.route('/courseReviews/:id').post(isAuthenticated,createReview)
 router.route('/courseReviews/:id').delete(isAuthenticated,deleteReview)
-router.route('/courseReviews/:id').get(isAuthenticated,getAllReviews)
+router.route('/courseReviews/:id').get(getAllReviews)
 
 
 
