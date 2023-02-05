@@ -6,7 +6,7 @@ export const createCourse = async (req, res, next) => {
   try {
     const { title, description, category, createdBy } = req.body;
     const file = req.file;
-    if (!title || !description || !category || !createdBy) {
+    if (!title || !description || !category || !createdBy || !file) {
       return next(new errorResponse("Please enter all fields", 401));
     }
 
@@ -113,6 +113,21 @@ export const getCourseLectures = async (req, res, next) => {
     res.status(200).json({
       success: true,
       lectures: course.lectures,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+export const getCourseDetails = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const course = await Course.findById(id);
+    if (!course) {
+      return next(new errorResponse("Course not found", 404));
+    }
+    res.status(200).json({
+      success: true,
+      courseDetail: course,
     });
   } catch (error) {
     next(error);

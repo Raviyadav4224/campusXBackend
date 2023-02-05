@@ -1,5 +1,5 @@
 import express from 'express'
-import { getAllCourses,addLecture, createCourse, deleteCourse, deleteLecture, getCourseLectures, createReview, deleteReview, getAllReviews } from '../controllers/courseRoutes.js'
+import { getAllCourses,addLecture, createCourse, deleteCourse, deleteLecture, getCourseLectures, createReview, deleteReview, getAllReviews, getCourseDetails } from '../controllers/courseRoutes.js'
 import { authorizeRole, authorizeSubscribers, isAuthenticated } from '../middlewares/isAuthenticated.js'
 import singleUpload from '../middlewares/multer.js'
 
@@ -14,6 +14,7 @@ router.route('/course/:id').post(isAuthenticated,authorizeRole,singleUpload,addL
 router.route('/lecture').delete(isAuthenticated,authorizeRole,deleteLecture)
 
 router.route('/course/:id').get(isAuthenticated,authorizeSubscribers,getCourseLectures)
+router.route('/courseDetails/:id').get(isAuthenticated,authorizeSubscribers,getCourseDetails)
 
 router.route('/course/:id').delete(isAuthenticated,authorizeRole,deleteCourse)
 
