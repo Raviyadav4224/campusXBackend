@@ -1,5 +1,9 @@
 import express from "express";
-import { buySubscription, getRazorPayKey, paymentVerification } from "../controllers/paymentControllers.js";
+import {
+  buySubscription,
+  getRazorPayKey,
+  paymentVerification,
+} from "../controllers/paymentControllers.js";
 
 import { isAuthenticated } from "../middlewares/isAuthenticated.js";
 

@@ -14,7 +14,7 @@ router.route('/course/:id').post(isAuthenticated,authorizeRole,singleUpload,addL
 router.route('/lecture').delete(isAuthenticated,authorizeRole,deleteLecture)
 
 router.route('/course/:id').get(isAuthenticated,authorizeSubscribers,getCourseLectures)
-router.route('/courseDetails/:id').get(isAuthenticated,authorizeSubscribers,getCourseDetails)
+router.route('/courseDetails/:id').get(isAuthenticated,getCourseDetails)
 
 router.route('/course/:id').delete(isAuthenticated,authorizeRole,deleteCourse)
 

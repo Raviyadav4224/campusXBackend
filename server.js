@@ -38,8 +38,8 @@ cloudinary.v2.config({
 // Razorpay
 
 export const instance = new RazorPay({
-    key_id: 'process.env.RAZORPAY_API_KEY',
-    key_secret: 'process.env.RAZORPAY_API_SECRET',
+    key_id: process.env.RAZORPAY_API_ID,
+    key_secret: process.env.RAZORPAY_API_SECRET,
   });
 
 //Routes
